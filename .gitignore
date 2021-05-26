@@ -1,0 +1,31 @@
+HELP.md
+.gradle
+build/
+target/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+*.log
+log/
+web-content/
+/credentials.json
+/config.properties
+/local/google_credentials.json
+/local/params.env

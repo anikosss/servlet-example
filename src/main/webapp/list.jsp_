@@ -1,0 +1,39 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.math.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:url scope="page" value="/hello" var="helloUrl">
+    <c:param name="country" value="${requestScope.get('country')}" />
+    <c:param name="city" value="${requestScope.get('city')}" />
+</c:url>
+<f:setBundle basename="messages" />
+<c:set var="name" value="${fn:toUpperCase(user.firstName + ' ' + user.lastName)}" scope="request" />
+<div>
+    <h1>
+        <f:message key="title.hello" />
+    </h1>
+    <c:choose>
+        <c:when test="">
+
+        </c:when>
+        <c:otherwise>
+
+        </c:otherwise>
+    </c:choose>
+
+    <c:forEach var="product" items="${products}">
+        <c:out value="${product}"/>
+    </c:forEach>
+    <c:if test="${user.age gt 10 or user.age lt 30}">
+        <div>
+            ${name}
+        </div>
+    </c:if>
+    <jsp:forward page="index.jsp" />
+    <jsp:include page="list.jsp" />
+    <%@ include file="index.jsp" %>
+    <a href="${'/hello?country=' + requestScope.get("country") + "&" + requestScope.get('city')}"></a>
+    <a href="${helloUrl}"></a>
+</div>
+</html>
